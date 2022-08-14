@@ -11,30 +11,29 @@ const entryPoints = ['src/product-single.ts', 'src/collection-single.ts', 'src/g
  * @type {esbuild.BuildOptions}
  */
 const defaultSettings = {
-  bundle: true,
-  outdir: buildDirectory,
-  minify: production,
-  sourcemap: !production,
-  target: production ? 'es2017' : 'esnext',
-  entryPoints,
+    bundle: true,
+    outdir: buildDirectory,
+    minify: production,
+    sourcemap: !production,
+    target: production ? 'es2017' : 'esnext',
+    entryPoints,
 };
 
 // Files building
 if (production) {
-  esbuild.build(defaultSettings);
+    esbuild.build(defaultSettings);
 }
 
 // Files serving
 else {
-  esbuild
-    .serve(
-      {
-        servedir: buildDirectory,
-        port: 3000,
-      },
-      defaultSettings
-    )
-    .then((server) => {
-      console.log(`Serving at http://localhost:${server.port}`);
-    });
+    esbuild
+        .serve({
+                servedir: buildDirectory,
+                port: 3000,
+            },
+            defaultSettings
+        )
+        .then((server) => {
+            console.log(`Serving at http://localhost:${server.port}`);
+        });
 }
