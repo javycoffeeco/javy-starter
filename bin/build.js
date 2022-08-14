@@ -5,8 +5,7 @@ const buildDirectory = 'dist';
 const production = process.env.NODE_ENV === 'production';
 
 // Config entrypoint files
-const entryPoints = ['src/index.ts'];
-
+const entryPoints = ['src/product-single.ts', 'src/collection-single.ts', 'src/globals-body.ts'];
 /**
  * Default Settings
  * @type {esbuild.BuildOptions}
